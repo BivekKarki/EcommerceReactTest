@@ -256,6 +256,22 @@ const Signup = () => {
             <p className='text-[#303030] text-sm font-medium'>Already have an account?<button onClick={()=>navigate("/login")}>Login</button> </p>  
           </div>
 
+          <div className="mt-4 text-center">
+            <div class="relative flex items-center my-4">
+              <div class="flex-grow border-t border-gray-300"></div>
+              <p class="text-center font-bold mx-3 mb-0 text-gray-500">OR Signup with</p>
+              <div class="flex-grow border-t border-gray-300"></div>
+            </div>
+            <div className="flex justify-center mt-2">
+              <button className="bg-blue-500 text-white px-4 py-2 rounded-lg mx-2">
+                Facebook
+              </button>
+              <button className="bg-red-500 text-white px-4 py-2 rounded-lg mx-2">
+                Google
+              </button>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
