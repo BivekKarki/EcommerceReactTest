@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
 import Button from '../../utilities/Button';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const Signup = () => {
+
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     first_name: '',
@@ -10,6 +13,7 @@ const Signup = () => {
     email: '',
     password: '',
     confirm_password: '',
+    agree_terms: false,
   });
   const [errors, setErrors] = useState({});
 
@@ -23,8 +27,8 @@ const Signup = () => {
 
   const validate = () => {
     const newErrors = {};
-    if (!formData.first_name) newErrors.first_name = 'First Name is required.';
-    if (!formData.last_name) newErrors.last_name = 'Last Name is required.';
+    if (!formData.first_name) newErrors.first_name = 'First name is required.';
+    if (!formData.last_name) newErrors.last_name = 'Last name is required.';
     if (!formData.email) {
       newErrors.email = 'Email is required.';
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
@@ -43,6 +47,10 @@ const Signup = () => {
 
     if (formData.password !== formData.confirm_password) {
       newErrors.confirm_password = 'Passwords do not match.';
+    }
+
+    if (!formData.agree_terms) {
+      newErrors.agree_terms = 'You must agree to the terms and conditions.';
     }
 
 
@@ -68,7 +76,7 @@ const Signup = () => {
         <div className="hidden md:flex md:w-1/2 bg-cover bg-gray-400 h-dvh justify-center items-center ">
           <img src='./images/signupImg.png' className='w-5/6 ' alt='image'/>
         </div>
-        <div className="w-full p-8 md:w-1/2">
+        <div className="w-full p-8 md:w-1/2 flex flex-col justify-center">
           <h1 className="text-gray-900 text-2xl font-semibold ">Sign up</h1>
           <p className="opacity-80 text-[#303030] text-sm font-normal ">Let’s get you all set up so you can access your personal account.</p>
           
@@ -90,7 +98,7 @@ const Signup = () => {
                 >
                   Firstname
                 </label>
-                <div className="">
+                <div className="h-1">
                   {errors?.first_name && (
                     <p className="text-xs text-red-500 p-0">
                       {errors.first_name}
@@ -114,7 +122,7 @@ const Signup = () => {
                   >
                     Lastname
                   </label>
-                  <div className="">
+                  <div className="h-1">
                   {errors?.last_name && (
                     <p className="text-xs text-red-500 p-0">
                       {errors.last_name}
@@ -140,7 +148,7 @@ const Signup = () => {
                   >
                     Phone number
                   </label>
-                  <div className="">
+                  <div className="h-1">
                   {errors?.phone_number && (
                     <p className="text-xs text-red-500 p-0">
                       {errors.phone_number}
@@ -166,7 +174,7 @@ const Signup = () => {
                   >
                     Email
                   </label>
-                  <div className="">
+                  <div className="h-1">
                   {errors?.email && (
                     <p className="text-xs text-red-500 p-0">
                       {errors.email}
@@ -193,7 +201,7 @@ const Signup = () => {
                 >
                   Password
                 </label>
-                <div className="">
+                <div className="h-1">
                   {errors?.password && (
                     <p className="text-xs text-red-500 p-0">
                       {errors.password}
@@ -217,7 +225,7 @@ const Signup = () => {
                   >
                     Confirm_password
                   </label>
-                  <div className="">
+                  <div className="h-1">
                   {errors?.confirm_password && (
                     <p className="text-xs text-red-500 p-0">
                       {errors.confirm_password}
@@ -227,17 +235,25 @@ const Signup = () => {
                 </div>
             </div>
 
-            <div className="mt-4 flex gap-1 text-zinc-900 text-sm">
+            <div className="mt-6 flex gap-1 text-zinc-900 text-sm">
                 <input type="checkbox" className="accent-emerald-500" name="agree_terms" id='agree_terms' />
                 <label htmlFor="agree_terms" className='text-[#303030] text-sm font-medium'>I agree to all the <a>Terms</a> and <a>Privacy Policies</a></label>
             </div>
+            <div className="h-1">
+                  {errors?.agree_terms && (
+                    <p className="text-xs text-red-500 p-0">
+                      {errors.agree_terms}
+                    </p>
+                  )}
+                </div>
+            
             
 
             <Button type='submit' children="create account" className="mt-6 w-full hover:bg-[#223a6c]"/>
           </form>
 
           <div className="mt-4 flex gap-1 text-zinc-900 text-sm justify-center">
-            <p className='text-[#303030] text-sm font-medium'>Already have an account? Login</p>  
+            <p className='text-[#303030] text-sm font-medium'>Already have an account?<button onClick={()=>navigate("/login")}>Login</button> </p>  
           </div>
 
         </div>
