@@ -125,7 +125,7 @@ const Login = () => {
             <Button type='submit' children="create account" className="mt-6 w-full hover:bg-[#223a6c]"/>
           </form>
 
-          <div className="mt-4 flex gap-1 text-zinc-900 text-sm justify-center">
+          <div className="mt-4 flex gap-1 text-zinc-900 text-sm justify-center ">
             <p className='text-[#303030] text-sm font-medium'>Don't have an account?<button onClick={()=>navigate("/login")}>Signup</button> </p>  
           </div>
 
