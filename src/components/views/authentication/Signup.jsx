@@ -76,7 +76,7 @@ const Signup = () => {
         <div className="hidden md:flex md:w-1/2 bg-cover bg-gray-400 h-dvh justify-center items-center ">
           <img src='./images/signupImg.png' className='w-5/6 ' alt='image'/>
         </div>
-        <div className="w-full p-8 md:w-1/2 flex flex-col justify-center">
+        <div className="w-full px-8 md:w-1/2 flex flex-col justify-center sm:py-8 pt-32 ">
           <h1 className="text-gray-900 text-2xl font-semibold ">Sign up</h1>
           <p className="opacity-80 text-[#303030] text-sm font-normal ">Let’s get you all set up so you can access your personal account.</p>
           
@@ -256,19 +256,19 @@ const Signup = () => {
             <p className='text-[#303030] text-sm font-medium'>Already have an account?<button onClick={()=>navigate("/login")}>Login</button> </p>  
           </div>
 
-          <div className="mt-4 text-center">
-            <div class="relative flex items-center my-4">
-              <div class="flex-grow border-t border-gray-300"></div>
-              <p class="text-center font-bold mx-3 mb-0 text-gray-500">OR Signup with</p>
-              <div class="flex-grow border-t border-gray-300"></div>
+          <div className="mt-4 text-center pb-8">
+            <div className="relative flex items-center my-4">
+              <div className="flex-grow border-t border-gray-300"></div>
+              <p className="text-center font-bold mx-3 mb-0 text-gray-500">OR Signup with</p>
+              <div className="flex-grow border-t border-gray-300"></div>
             </div>
-            <div className="flex justify-center mt-2">
-              <button className="bg-blue-500 text-white px-4 py-2 rounded-lg mx-2">
-                Facebook
-              </button>
-              <button className="bg-red-500 text-white px-4 py-2 rounded-lg mx-2">
-                Google
-              </button>
+            <div className="flex justify-center flex-col sm:flex-row gap-2 sm:gap-0 mt-8 w-full">
+              <Button className="bg-transparent text-white px-4 py-2 rounded-sm mx-2 w-full sm:w-1/2 border border-black">
+                <img src='./images/facebook.svg' alt='' className='w-full h-6' />
+              </Button>
+              <Button className="bg-transparent text-white px-4 py-2 rounded-sm mx-2 w-full sm:w-1/2 border border-black">
+                <img src='./images/google.svg' alt='' className='w-full h-6'/>
+              </Button>
             </div>
           </div>
 
